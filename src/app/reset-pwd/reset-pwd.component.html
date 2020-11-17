@@ -1,0 +1,23 @@
+<div class="row mt-5">
+    <div class="col-md-6 mx-auto">
+      <!-- <span class="text-danger">{{errorMessage}}</span> -->
+      <form [formGroup]="formReset" (ngSubmit)="resetPwd()">
+        <h5>Entrez Votre Adresse email Et On va vous Envoyé un email pour Réinitialiser Votre Mot de passe</h5>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input formControlName="email"   class="form-control" id="email" >
+        </div>
+        <div class="alert alert-danger"  *ngIf="formReset.get('email').invalid && (formReset.get('email').touched || formReset.get('email').dirty) ">
+        <diV *ngIf="formReset.get('email').getError('required')">This field Is required</diV>
+        <div *ngIf="formReset.get('email').getError('email')">ce champ doit etre e</div>
+
+        </div>
+  
+       
+        <button [disabled]="formReset.invalid" class="btn btn-primary black-background white btn-block">Réinitialiser Mot de passe</button>
+       
+      </form>
+      <span class="error">{{errorMessage}}</span>
+      <span class="succes">{{succesMessage}}</span>
+    </div>
+  </div>
